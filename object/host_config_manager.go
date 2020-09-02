@@ -169,3 +169,11 @@ func (m HostConfigManager) DateTimeSystem(ctx context.Context) (*HostDateTimeSys
 	}
 	return NewHostDateTimeSystem(m.c, ref), nil
 }
+
+func (m HostConfigManager) PciPassthruSystem(ctx context.Context) (*PciPassthruSystem, error) {
+	ref, err := m.reference(ctx, "pciPassthruSystem")
+	if err != nil {
+		return nil, err
+	}
+	return NewPciPassthruSystem(m.c, ref), nil
+}
